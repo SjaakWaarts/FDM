@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FDM/app/__pycache__
+/FDM/bin
+/FDM/data
+/FDM/FDM/__pycache__
+/FDM/obj/Debug
