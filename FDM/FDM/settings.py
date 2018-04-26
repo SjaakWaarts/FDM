@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','108.61.167.27']
+ALLOWED_HOSTS = ['localhost','108.61.167.27', '10.20.33.102']
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
