@@ -57,6 +57,9 @@
     <Compile Include="app\api.py" />
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
+    <Compile Include="FDM\local_settings.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="manage.py" />
     <Compile Include="FDM\__init__.py" />
     <Compile Include="FDM\settings.py" />

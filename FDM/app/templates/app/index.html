@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<div class="jumbotron text-center"">
-    <h1>IFF-DM Data Miner</h1>
+<div class="jumbotron text-center">
+    {% if site == "IFF" %}
+        <h1>IFF Data Miner</h1>
+    {% endif %}
+    {% if site == "D2Y" %}
+        <h1>D2Y Data Miner</h1>
+    {% endif %}
     <p class="lead">Predict the success of a new Experiment or Submission for the different market segments.</p>
 </div>
 

@@ -197,3 +197,11 @@ LOGGING = {
 
 # Specify the default test runner.
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+site = 'IFF'
+# Import Local settings
+try:
+    from FDM.local_settings import *
+except ImportError:
+    import sys
+    sys.stderr.write('local_settings.py not set; using default settings\n')

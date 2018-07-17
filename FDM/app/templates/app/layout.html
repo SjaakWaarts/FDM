@@ -3,7 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - IFF-DM Data Miner</title>
+    {% if site == "IFF" %}
+        <title>IFF - Data Miner</title>
+    {% endif %}
+    {% if site == "D2Y" %}
+        <title>D2Y -Data Miner</title>
+    {% endif %}
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     {% load staticfiles %}
 <!--    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" /> -->
@@ -23,7 +28,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{% url 'home' %} class="navbar-brand">IFF-DM</a>
+                {% if site == "IFF" %} 
+                    <a href="{% url 'home' %}" class="navbar-brand">IFF Data Miner</a>
+                {% endif %}
+                {% if site == "D2Y" %} 
+                    <a href="{% url 'home' %}" class="navbar-brand">D2Y Data Miner</a>
+                {% endif %}
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
