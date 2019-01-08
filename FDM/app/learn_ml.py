@@ -5,7 +5,7 @@ import numpy as np
 import requests
 import os
 from django.core.files import File
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Perceptron
 from sklearn.svm import SVC

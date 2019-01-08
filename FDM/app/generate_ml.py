@@ -5,7 +5,6 @@ import numpy as np
 import scipy as sp
 from scipy import stats
 import os
-from sklearn.cross_validation import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Perceptron
 from sklearn.svm import SVC

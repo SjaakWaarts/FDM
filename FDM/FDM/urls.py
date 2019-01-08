@@ -12,9 +12,9 @@ import app.api
 import app.basket_ds
 
 # Uncomment the next lines to enable the admin:
-# from django.conf.urls import include
-# from django.contrib import admin
-# admin.autodiscover()
+from django.conf.urls import include
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = [
     # Examples:
@@ -49,8 +49,9 @@ urlpatterns = [
     # Registration URLs
     path('accounts/register/', app.views.register, name='register'),
     path('accounts/register_complete/', app.views.registrer_complete, name='register_complete'),
-    path('login/', auth_views.login, name='login'),
-    path('logout/', auth_views.logout, name='logout'),
+    #path('login/', auth_views.login, name='login'),
+    #path('logout/', auth_views.logout, name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 
     # Uncomment the admin/doc line below to enable admin documentation:
