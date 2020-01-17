@@ -16,6 +16,8 @@ from django.conf.urls import include
 from django.contrib import admin
 admin.autodiscover()
 
+from django.contrib import auth
+
 urlpatterns = [
     # Examples:
     path('', app.views.home, name='home'),

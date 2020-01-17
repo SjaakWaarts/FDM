@@ -17,7 +17,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 ML = {'svm'  : ["RBF SVM", SVC(gamma=2, C=1)],
       'logit': ["Logit", LogisticRegression(C=1000.0, solver='sag', random_state=0)],
-      'nn'   : ["Perceptron", Perceptron(n_iter=51)],
+      'nn'   : ["Perceptron", Perceptron()],
       'bayes': ["Bayes", GaussianNB(),]}
 
 

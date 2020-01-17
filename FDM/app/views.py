@@ -3,7 +3,7 @@ Definition of views.
 """
 
 from pandas import Series, DataFrame
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.http import HttpRequest
 from django.http import HttpResponse
@@ -375,7 +375,7 @@ def register(request):
     token.update(csrf(request))
     token['form'] = form
 
-    return render_to_response('registration/register.html', token)
+    return render(request, 'registration/register.html', token)
 
 def registrer_complete(request):
-    return render_to_response('registration/registrer_complete.html')
+    return render(request, 'registration/registrer_complete.html')

@@ -5,7 +5,7 @@
 
 <div class="page-header">
     <h1>
-        {% load staticfiles %}
+        {% load static %}
             <img src="{% static 'app/content/genesis.jpg' %}" alt="Genesis" height="100" width="120">    
         Genesis <small>Generate new Formulas</small>
     </h1>
@@ -121,12 +121,12 @@
 
 
 {% block scripts %}
-    {% load staticfiles %}
+    {% load static %}
         <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
         <script src="{% static 'app/scripts/crossfilter.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/js/jquery.tablesorter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.8/js/jquery.tablesorter.widgets.js"></script>
-    {% load staticfiles %}
+    {% load static %}
         <script src="{% static 'app/scripts/genesis.js' %}"></script>
 {% endblock %}
 
