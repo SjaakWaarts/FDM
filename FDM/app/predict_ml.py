@@ -196,10 +196,10 @@ def predict_df (prediction_li):
     for p in prediction_li:
         d = {'material': p.material, 'segment': p.segment, p.clf_name: p.fnresstssbm+' (%.2f)' % p.accuracy}
         s = pd.Series(d)
-        df.set_value((p.material, p.segment),'material', p.material)
-        df.set_value((p.material, p.segment),'descr', p.descr)
-        df.set_value((p.material, p.segment),'segment', p.segment)
-        df.set_value((p.material, p.segment),p.clf_name, p.fnresstssbm+' (%.2f)' % p.accuracy)
+        df.at[(p.material, p.segment),'material'] = p.material
+        df.at[(p.material, p.segment),'descr'] = p.descr
+        df.at[(p.material, p.segment),'segment'] = p.segment
+        df.at[(p.material, p.segment),p.clf_name] = p.fnresstssbm+' (%.2f)' % p.accuracy
     df.sort_values(['material', 'segment'], inplace=True)
     df.fillna('', inplace=True)
     return df      

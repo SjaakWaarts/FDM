@@ -115,18 +115,18 @@ def prepare(e2e):
         models.g_comp_dict[comp]['nr_ingr'] = nr_ingr
         if nr_ingr == 0 or not selected:
             continue
-        cid = models.g_data_file.ix[comp].cid
-        bid = models.g_data_file.ix[comp].bid
-        comp_name = models.g_data_file.ix[comp].comp_name
+        cid = models.g_data_file.loc[comp].cid
+        bid = models.g_data_file.loc[comp].bid
+        comp_name = models.g_data_file.loc[comp].comp_name
         models.g_comp_dict[comp]['cid'] = cid
         models.g_comp_dict[comp]['bid'] = bid
         models.g_comp_dict[comp]['comp_name'] = comp_name
-        models.g_comp_dict[comp]['cid_name'] = models.g_data_file.ix[comp].cid_name
+        models.g_comp_dict[comp]['cid_name'] = models.g_data_file.loc[comp].cid_name
         if cid in ['777777', '888888', '999999']:
             ingrs = [(comp, comp_name)]
-            models.g_comp_dict[comp]['cid'] = models.g_data_file.ix[comp].bid
+            models.g_comp_dict[comp]['cid'] = models.g_data_file.loc[comp].bid
         else:
-            ingrs = [(ingr, models.g_data_file.ix[ingr].comp_name) for ingr in models.g_data_file[models.g_data_file.cid == cid]['component'].tolist()]
+            ingrs = [(ingr, models.g_data_file.loc[ingr].comp_name) for ingr in models.g_data_file[models.g_data_file.cid == cid]['component'].tolist()]
         models.g_comp_dict[comp]['ingrs'] = ingrs
         #mask = [[models.g_X[i][cmpix] > 0 for i in range(0,nrmat-1)]]
         #bompartp = np.array([models.g_X[mask, cmpix]])
@@ -139,23 +139,23 @@ def prepare(e2e):
         models.g_comp_dict[comp]['max']         = np.nanmax(bompartp)
         models.g_comp_dict[comp]['avg']         = np.nanmean(bompartp)
         models.g_comp_dict[comp]['std']         = np.nanstd(bomparts)
-        models.g_comp_dict[comp]['mnc']         = Q * models.g_data_file.ix[comp].mnc / 1000.0
-        models.g_comp_dict[comp]['cut_off']     = Q / models.g_data_file.ix[comp].cut_off
-        models.g_comp_dict[comp]['X']           = Q * models.g_data_file.ix[comp].x_round
-        models.g_comp_dict[comp]['Y']           = Q * models.g_data_file.ix[comp].y_round
-        models.g_comp_dict[comp]['odor']        = Q * models.g_data_file.ix[comp].odor_strength_index_round
-        models.g_comp_dict[comp]['slope']       = Q * models.g_data_file.ix[comp].pp_slope_round
+        models.g_comp_dict[comp]['mnc']         = Q * models.g_data_file.loc[comp].mnc / 1000.0
+        models.g_comp_dict[comp]['cut_off']     = Q / models.g_data_file.loc[comp].cut_off
+        models.g_comp_dict[comp]['X']           = Q * models.g_data_file.loc[comp].x_round
+        models.g_comp_dict[comp]['Y']           = Q * models.g_data_file.loc[comp].y_round
+        models.g_comp_dict[comp]['odor']        = Q * models.g_data_file.loc[comp].odor_strength_index_round
+        models.g_comp_dict[comp]['slope']       = Q * models.g_data_file.loc[comp].pp_slope_round
 
         models.g_C[iX['bompartp'], cmpix] = Q
         models.g_C[iX['nr_ingr'], cmpix] = np.sum(models.g_X[iX['nr_ingr'],:,cmpix])
-        models.g_C[iX['mnc'], cmpix] = models.g_data_file.ix[comp].mnc
-        models.g_C[iX['cut_off'], cmpix] = models.g_data_file.ix[comp].cut_off
-        models.g_C[iX['X'], cmpix] = models.g_data_file.ix[comp].x_round
-        models.g_C[iX['Y'], cmpix] = models.g_data_file.ix[comp].y_round
-        models.g_C[iX['odor'], cmpix] = models.g_data_file.ix[comp].odor_strength_index_round
-        models.g_C[iX['slope'], cmpix] = models.g_data_file.ix[comp].pp_slope_round
-        models.g_C[iX['perc_iff'], cmpix] = models.g_data_file.ix[comp].perc_iff
-        models.g_C[iX['perc_pref'], cmpix] = models.g_data_file.ix[comp].perc_pref
+        models.g_C[iX['mnc'], cmpix] = models.g_data_file.loc[comp].mnc
+        models.g_C[iX['cut_off'], cmpix] = models.g_data_file.loc[comp].cut_off
+        models.g_C[iX['X'], cmpix] = models.g_data_file.loc[comp].x_round
+        models.g_C[iX['Y'], cmpix] = models.g_data_file.loc[comp].y_round
+        models.g_C[iX['odor'], cmpix] = models.g_data_file.loc[comp].odor_strength_index_round
+        models.g_C[iX['slope'], cmpix] = models.g_data_file.loc[comp].pp_slope_round
+        models.g_C[iX['perc_iff'], cmpix] = models.g_data_file.loc[comp].perc_iff
+        models.g_C[iX['perc_pref'], cmpix] = models.g_data_file.loc[comp].perc_pref
 
     for mat, value in models.g_mat_dict.items():
         matix = models.g_mat_dict[mat]['ix']
@@ -246,7 +246,7 @@ def draw_sample(experiment, nrcomp):
         std = models.g_comp_dict[comp]['std']
         dosage = stats.truncnorm.rvs(-mu/std, (1-mu)/std, mu, std, size=1)
         totalparts = totalparts + dosage[0]
-        comp_name = models.g_data_file.ix[comp].comp_name
+        comp_name = models.g_data_file.loc[comp].comp_name
         bom.append([comp, comp_name, dosage[0]])
 # normalize bomparts
     for ix, comp in enumerate(bom):
