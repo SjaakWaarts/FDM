@@ -2,6 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+/venv
+/FDM/static
 /FDM/app/__pycache__
 /FDM/bin
 /FDM/data
@@ -9,4 +11,6 @@
 /FDM/obj/Debug
 /FDM/FDM/local_settings.py
 /FDM/obj/Any CPU/Debug
-/FDM/static/admin/js/vendor/select2/i18n
+
+/FDM/FDM/static
+/FDM/FDM/data
